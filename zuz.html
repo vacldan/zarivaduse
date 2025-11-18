@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zářivá duše – Meditace, kurzy a rituály na jedné stránce</title>
+  <meta name="description" content="Vedené meditace, programy, pobyty a ceremonie Zářivá duše. Jedna přehledná stránka s přímými odkazy na detail/checkout." />
+  <style>
+    /* ==== Base & palette (stejný koncept jako předtím) ==== */
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --primary:#d4a5a5;--primary-dark:#c09090;--secondary:#f4e4e4;
+      --accent:#e8b5a5;--lavender:#c8b8db;--cream:#faf6f3;--white:#fff;
+      --text:#4a4a4a;--muted:#7a7a7a;--border:rgba(212,165,165,.15);--peach:#ffd4c4
+    }
+    body{font-family:Georgia,Palatino,serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+    html{scroll-behavior:smooth}
+
+    /* ==== Nav ==== */
+    .navigation{position:fixed;inset:0 auto auto 0;height:60px;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav-inner{height:60px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:.6rem;align-items:center;text-decoration:none}
+    .brand-badge{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--lavender));display:grid;place-items:center;color:#fff;font-weight:700}
+    .brand-title{color:var(--text);font-weight:600}
+    .nav-links{display:flex;gap:1.25rem;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none}
+    .nav-links a:hover{color:var(--primary)}
+    .menu-btn{display:none;background:none;border:0;font-size:22px}
+
+    /* ==== Hero ==== */
+    .hero{margin-top:60px;min-height:92vh;display:grid;place-items:center;text-align:center;padding:5rem 1rem;background:
+      linear-gradient(135deg,rgba(212,165,165,.55),rgba(200,184,219,.45),rgba(244,228,228,.55)),
+      url('portal-bg.jpg') center/cover no-repeat}
+    .hero h1{font-weight:300;color:#fff;font-size:clamp(2.4rem,5.8vw,3.8rem);text-shadow:0 2px 14px rgba(0,0,0,.2)}
+    .hero p{color:#fff;opacity:.95;max-width:860px;margin:.9rem auto 1.6rem}
+    .cta,.btn{display:inline-block;background:linear-gradient(135deg,var(--peach),var(--accent));color:#fff;padding:1rem 2.4rem;border-radius:999px;text-decoration:none;font-weight:700;letter-spacing:1.5px;box-shadow:0 10px 26px rgba(232,181,165,.38)}
+    .cta:hover,.btn:hover{transform:translateY(-3px);transition:.25s}
+
+    /* ==== Sections ==== */
+    section{padding:4.5rem 0}
+    .title{font-size:clamp(1.9rem,3vw,2.4rem);font-weight:300;color:var(--primary);margin-bottom:1rem;text-align:center}
+    .lead{color:var(--muted);max-width:900px;margin:0.25rem auto 1.8rem;text-align:center}
+    .card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 6px 20px rgba(212,165,165,.08);padding:1.2rem}
+    .grid{display:grid;gap:1.1rem}
+    @media(min-width:680px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:960px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card h3{font-size:1.15rem;color:#5b4b4b;margin:.2rem 0 .35rem}
+    .card p{font-size:.98rem;color:var(--muted)}
+    .card .btn{margin-top:.7rem;padding:.7rem 1.1rem;font-size:.92rem}
+    .badge{display:inline-block;font-size:.72rem;letter-spacing:.12em;color:#885;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.2rem .6rem;margin-bottom:.35rem}
+
+    /* ==== Visuals (zůstává koncept) ==== */
+    .visual{min-height:56vh;display:grid;place-items:center;text-align:center;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4);
+      background-size:cover;background-position:center;position:relative}
+    .visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.08),rgba(0,0,0,.35))}
+    .visual > div{position:relative;max-width:760px;padding:0 1rem}
+    .visual.pyramid{background-image:url('portal-pyramid.jpg')}
+    .visual.column{background-image:url('portal-column.jpg')}
+
+    /* ==== About Zuz ==== */
+    .about{max-width:980px;margin:0 auto}
+    .avatar-wrap{display:grid;place-items:center;margin:.6rem 0}
+    .avatar{width:140px;height:140px;border-radius:999px;background:#fff;box-shadow:0 8px 26px rgba(0,0,0,.08);display:grid;place-items:center}
+    .avatar img{width:92%;height:92%;border-radius:999px;object-fit:cover}
+    .chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.6rem}
+    .chip{background:#f7f6fb;border:1px solid #e6e6f2;font-size:.78rem;padding:.25rem .6rem;border-radius:999px;color:#555}
+
+    /* ==== Footer ==== */
+    footer{background:linear-gradient(135deg,var(--primary),var(--lavender));color:#fff;padding:3rem 0}
+    footer a{color:#fff}
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#home"><span class="brand-badge">ZD</span><span class="brand-title">Zářivá duše</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Domů</a></li>
+        <li><a href="#offer">Nabídka</a></li>
+        <li><a href="#programs">Programy & Pobyty</a></li>
+        <li><a href="#cacao">Kakao & Koučink</a></li>
+        <li><a href="#about">O Zuz</a></li>
+        <li><a href="#order">11:11</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <div class="container">
+      <h1>Zpět k srdci. K pravdě těla. K vaší síle.</h1>
+      <p>Jedno místo pro všechny vedené meditace, kurzy, programy i rituály Zářivá duše. Vyberte si, co vás volá – a přejděte rovnou na detail nebo checkout.</p>
+      <a class="cta" href="https://zarivaduse.cz/11-11/" target="_blank" rel="noopener">Koupit 11:11 meditaci</a>
+    </div>
+  </header>
+
+  <!-- Nabídka – Meditace & balíčky -->
+  <section id="offer">
+    <div class="container">
+      <h2 class="title">Meditace & balíčky</h2>
+      <p class="lead">Nejrychlejší cesta zpět k sobě. Vybírejte z jednorázových meditací i výhodných balíčků.</p>
+
+      <div class="grid cols-3">
+        <!-- Úplňková meditace -->
+        <article class="card">
+          <span class="badge">Meditace</span>
+          <h3>Úplňková meditace</h3>
+          <p>Uvolnit staré energie, najít klid a vytvořit prostor pro nové začátky; napojení na cykly přírody a vlastní rytmus. </p>
+          <a class="btn" href="https://zarivaduse.cz/uplnkova-meditace/" target="_blank" rel="noopener">Detail & objednat</a>
+        </article>
+
+        <!-- Lví brána -->
+        <article class="card">
+          <span class="badge">Meditace</span>
+          <h3>Lví brána</h3>
+          <p>Propojení s vnitřní silou; vznikla pro období Lví brány, ale můžete ji používat kdykoli pro aktivaci odvahy a směru.</p>
+          <a class="btn" href="https://zarivaduse.cz/meditace-lvi-brana/" target="_blank" rel="noopener">Detail & objednat</a>
+        </article>
+
+        <!-- Buněčná moudrost -->
+        <article class="card">
+          <span class="badge">Meditace</span>
+          <h3>Probouzení vnitřní moudrosti</h3>
+          <p>Vedené setkání s „buňkou“ – hluboké propojení s tělesnou moudrostí, vděčností a laskavostí k sobě.</p>
+          <a class="btn" href="https://zarivaduse.cz/transformacni-meditace-setkani-s-bunecnou-moudrosti/" target="_blank" rel="noopener">Detail & objednat</a>
+        </article>
+
+        <!-- Balíček tří meditací -->
+        <article class="card">
+          <span class="badge">Balíček</span>
+          <h3>Balíček 3 meditací: Cesta k sobě</h3>
+          <p>Propojení – Uvolnění – Obnova. Zklidnění, regenerace a návrat do klidu a harmonie v těle i mysli.</p>
+          <a class="btn" href="https://zarivaduse.cz/balicek-tri-meditaci-cesta-k-sobe-propojeni-uvolneni-obnova/" target="_blank" rel="noopener">Detail & objednat</a>
+        </article>
+
+        <!-- Rozcestník online meditací -->
+        <article class="card">
+          <span class="badge">Rozcestník</span>
+          <h3>Online meditace – přehled</h3>
+          <p>Aktuální nabídka online rituálů a tematických meditací na jednom místě.</p>
+          <a class="btn" href="https://zarivaduse.cz/online-meditace/" target="_blank" rel="noopener">Otevřít přehled</a>
+        </article>
+
+        <!-- Meditace zdarma -->
+        <article class="card">
+          <span class="badge">Zdarma</span>
+          <h3>Meditace zdarma</h3>
+          <p>Krátká vedená nahrávka pro rychlý návrat k dechu a k sobě. Získáte po vyplnění formuláře.</p>
+          <a class="btn" href="https://zarivaduse.cz/formular-pro-meditaci-zdarma/" target="_blank" rel="noopener">Získat zdarma</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual (pyramida) -->
+  <section class="visual pyramid">
+    <div>
+      <h2 class="title" style="color:#fff">Prostor, kde vzniká jasnost</h2>
+      <p class="lead" style="color:#fff">Meditace jsou navržené tak, abyste je mohli používat opakovaně – kdykoli potřebujete přeladit tělo, emoce i mysl.</p>
+    </div>
+  </section>
+
+  <!-- Programy & pobyty -->
+  <section id="programs">
+    <div class="container">
+      <h2 class="title">Programy & pobyty</h2>
+      <p class="lead">Delší vedené cesty a transformační setkání.</p>
+
+      <div class="grid cols-2">
+        <article class="card">
+          <span class="badge">Programy</span>
+          <h3>Programy Zářivá duše</h3>
+          <p>Tematické série pro postupnou, udržitelnou změnu a integraci do každodennosti.</p>
+          <a class="btn" href="https://zarivaduse.cz/programy/" target="_blank" rel="noopener">Zobrazit programy</a>
+        </article>
+
+        <article class="card">
+          <span class="badge">Pobyt</span>
+          <h3>Transformační pobyty</h3>
+          <p>Hluboký ponor v bezpečném prostoru, sdílení a integrace – vybrané termíny v roce.</p>
+          <a class="btn" href="https://zarivaduse.cz/pobyty/" target="_blank" rel="noopener">Aktuální info</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kakao & koučink -->
+  <section id="cacao">
+    <div class="container">
+      <h2 class="title">Kakaové ceremonie & koučink</h2>
+      <p class="lead">Rituál pro otevření srdce nebo individuální průvodcovství.</p>
+
+      <div class="grid cols-2">
+        <article class="card">
+          <span class="badge">Ceremonie</span>
+          <h3>Kakaová ceremonie</h3>
+          <p>Léčivá síla kakaa, vedená meditace a sdílená energie skupiny v bezpečném prostoru.</p>
+          <a class="btn" href="https://zarivaduse.cz/kakaova-ceremonie/" target="_blank" rel="noopener">Více o ceremonii</a>
+        </article>
+
+        <article class="card">
+          <span class="badge">Individuálně</span>
+          <h3>Koučink</h3>
+          <p>Holistický koučink a mentoring: disciplína, která léčí, a měřitelné výsledky bez vyhoření.</p>
+          <a class="btn" href="https://zarivaduse.cz/koucink/" target="_blank" rel="noopener">Domluvit setkání</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual (column) -->
+  <section class="visual column">
+    <div>
+      <h2 class="title" style="color:#fff">Stává se to jen jednou za 9 let</h2>
+      <p class="lead" style="color:#fff">11:11 propojuje staré a nové – a pomáhá uvolnit minulost a získat jasný plán pro další období.</p>
+    </div>
+  </section>
+
+  <!-- 11:11 order box -->
+  <section id="order">
+    <div class="container">
+      <h2 class="title">11:11 – Vedená meditace</h2>
+      <p class="lead">Okamžitý přístup • MP3 ke stažení • Navždy vaše</p>
+      <div class="card" style="max-width:640px;margin:0 auto;text-align:center">
+        <div style="font-size:2rem;font-weight:700;color:var(--primary-dark);margin:.2rem 0 .6rem">555 Kč</div>
+        <p style="color:var(--muted)">Portál do srdce & manifestace</p>
+        <a class="btn" href="https://zarivaduse.cz/11-11/" target="_blank" rel="noopener">Koupit meditaci 11:11</a>
+        <p style="margin-top:.6rem;color:var(--muted);font-size:.95rem">Platba přes zabezpečenou bránu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Zuz -->
+  <section id="about">
+    <div class="container about">
+      <h2 class="title">O Zuz</h2>
+      <div class="avatar-wrap">
+        <div class="avatar"><img src="zuz-portrait.png" alt="Zuz – terapeutka a mentorka"></div>
+      </div>
+      <p class="lead" style="max-width:820px">
+        Holistická koučka a průvodkyně osobní transformace, která spojuje neurovědu, psychologii a vědomou spiritualitu do praktického systému. Bez tlaku, s respektem k tělu a nervové soustavě.
+      </p>
+      <div class="chips">
+        <span class="chip">Neuro-informed</span>
+        <span class="chip">Soul-led</span>
+        <span class="chip">Praktická magie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="title">Kontakt</h2>
+      <div class="card" style="max-width:680px;margin:0 auto">
+        <p>Máte otázku k meditacím, programům nebo objednávce? Napište mi.</p>
+        <p style="color:var(--muted);margin-top:.4rem">E-mail: <a href="mailto:info@tvatvorba.cz">info@tvatvorba.cz</a></p>
+        <p style="margin-top:.4rem"><a class="btn" href="https://zarivaduse.cz/kontakt/" target="_blank" rel="noopener">Otevřít kontaktní stránku</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="text-align:center">
+      <p>&copy; 2025 Zářivá duše • VOP & GDPR najdete na webu.</p>
+    </div>
+  </footer>
+
+  <script>
+    // mobilní menu (pokud byste ho chtěli zapnout)
+    const btn=document.querySelector('.menu-btn'),links=document.querySelector('.nav-links');
+    if(btn&&links){btn.style.display='none';}
+  </script>
+</body>
+</html>
