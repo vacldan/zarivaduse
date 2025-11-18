@@ -3,28 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vedené meditace, programy, pobyty a ceremonie Zářivá duše. Jedna přehledná stránka s přímými odkazy na detail/checkout.">
-    <title>Zářivá duše – Meditace, kurzy a rituály na jedné stránce</title>
+    <meta name="description" content="Vedené meditace, programy, pobyty a ceremonie Zářivá duše. Cesta k sobě samé skrze meditace, ženské kruhy a kakaové ceremonie.">
+    <title>Zářivá duše – Meditace, ženské kruhy a kakaové ceremonie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container nav-inner">
-            <a class="brand" href="#home">
-                <span class="brand-badge">ZD</span>
-                <span class="brand-title">Zářivá duše</span>
+        <div class="nav-container">
+            <a class="logo" href="#home">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" fill="url(#logo-gradient)"/>
+                        <path d="M20 10 L20 30 M10 20 L30 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e8b5d4;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7ec8d4;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">Zářivá duše</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">Domů</a></li>
-                <li><a href="#offer">Nabídka</a></li>
-                <li><a href="#programs">Programy & Pobyty</a></li>
-                <li><a href="#cacao">Kakao & Koučink</a></li>
-                <li><a href="#about">O Zuz</a></li>
-                <li><a href="#order">11:11</a></li>
+                <li><a href="#meditations">Meditace</a></li>
+                <li><a href="#programs">Programy</a></li>
+                <li><a href="#cacao">Kakao</a></li>
+                <li><a href="#about">O mně</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
             <div class="hamburger">
@@ -36,204 +46,405 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="home" class="hero">
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
         <div class="hero-content">
-            <h1 class="hero-title">Zpět k srdci. K pravdě těla. K vaší síle.</h1>
-            <p class="hero-subtitle">Jedno místo pro všechny vedené meditace, kurzy, programy i rituály Zářivá duše. Vyberte si, co vás volá – a přejděte rovnou na detail nebo checkout.</p>
-            <a class="cta-button" href="https://zarivaduse.cz/11-11/" target="_blank" rel="noopener">Koupit 11:11 meditaci</a>
+            <div class="hero-badge">✨ Cesta k sobě samé</div>
+            <h1 class="hero-title">Zpět k srdci.<br>K pravdě těla.<br>K vaší síle.</h1>
+            <p class="hero-subtitle">Objevte prostor pro sebepoznání, uzdravení a růst skrze vedené meditace, ženské kruhy a kakaové ceremonie</p>
+            <div class="hero-buttons">
+                <a href="#meditations" class="btn btn-primary">Prozkoumat meditace</a>
+                <a href="https://zarivaduse.cz/11-11/" target="_blank" class="btn btn-outline">11:11 Meditace</a>
+            </div>
         </div>
-        <div class="hero-decoration">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
+        <div class="scroll-indicator">
+            <span>Posuňte dolů</span>
+            <svg width="20" height="30" viewBox="0 0 20 30">
+                <path d="M10 5 L10 20 M10 20 L5 15 M10 20 L15 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
         </div>
-    </header>
+    </section>
 
-    <!-- Nabídka – Meditace & balíčky -->
-    <section id="offer" class="offer">
+    <!-- Features -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">Meditace & balíčky</h2>
-            <p class="section-subtitle">Nejrychlejší cesta zpět k sobě. Vybírejte z jednorázových meditací i výhodných balíčků.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="25" stroke="url(#grad1)" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="18" stroke="url(#grad1)" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="11" stroke="url(#grad1)" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="4" fill="url(#grad1)"/>
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#7ec8d4"/>
+                                    <stop offset="100%" style="stop-color:#e8b5d4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Vedené meditace</h3>
+                    <p>Nahrávky pro uklidnění mysli a spojení s vnitřním klidem</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="20" r="7" stroke="url(#grad2)" stroke-width="2"/>
+                            <circle cx="15" cy="35" r="5.5" stroke="url(#grad2)" stroke-width="2"/>
+                            <circle cx="45" cy="35" r="5.5" stroke="url(#grad2)" stroke-width="2"/>
+                            <circle cx="22" cy="48" r="5" stroke="url(#grad2)" stroke-width="2"/>
+                            <circle cx="38" cy="48" r="5" stroke="url(#grad2)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e8b5d4"/>
+                                    <stop offset="100%" style="stop-color:#d4a5a5"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Ženské kruhy</h3>
+                    <p>Bezpečný prostor pro sdílení, podporu a sílu ženství</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 45 C30 45 25 38 25 30 C25 22 30 15 30 15 C30 15 35 22 35 30 C35 38 30 45 30 45Z" stroke="url(#grad3)" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="6" fill="url(#grad3)"/>
+                            <path d="M30 15 L30 10 M26 17 L23 13 M34 17 L37 13" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#d4a5a5"/>
+                                    <stop offset="100%" style="stop-color:#7ec8d4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Kakaové ceremonie</h3>
+                    <p>Rituál s léčivým kakaem pro otevření srdce</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="cards-grid cols-3">
-                <!-- Úplňková meditace -->
-                <article class="card">
-                    <span class="badge">Meditace</span>
+    <!-- Meditace -->
+    <section id="meditations" class="meditations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Meditace & Balíčky</span>
+                <h2 class="section-title">Nejrychlejší cesta zpět k sobě</h2>
+                <p class="section-subtitle">Vybírejte z jednorázových meditací i výhodných balíčků pro vaši duchovní cestu</p>
+            </div>
+
+            <div class="meditation-grid">
+                <div class="meditation-card card-gradient-1">
+                    <span class="card-badge">Meditace</span>
                     <h3>Úplňková meditace</h3>
                     <p>Uvolnit staré energie, najít klid a vytvořit prostor pro nové začátky; napojení na cykly přírody a vlastní rytmus.</p>
-                    <a class="btn" href="https://zarivaduse.cz/uplnkova-meditace/" target="_blank" rel="noopener">Detail & objednat</a>
-                </article>
+                    <a href="https://zarivaduse.cz/uplnkova-meditace/" target="_blank" class="card-link">
+                        Detail & objednat
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Lví brána -->
-                <article class="card">
-                    <span class="badge">Meditace</span>
+                <div class="meditation-card card-gradient-2">
+                    <span class="card-badge">Meditace</span>
                     <h3>Lví brána</h3>
                     <p>Propojení s vnitřní silou; vznikla pro období Lví brány, ale můžete ji používat kdykoli pro aktivaci odvahy a směru.</p>
-                    <a class="btn" href="https://zarivaduse.cz/meditace-lvi-brana/" target="_blank" rel="noopener">Detail & objednat</a>
-                </article>
+                    <a href="https://zarivaduse.cz/meditace-lvi-brana/" target="_blank" class="card-link">
+                        Detail & objednat
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Buněčná moudrost -->
-                <article class="card">
-                    <span class="badge">Meditace</span>
+                <div class="meditation-card card-gradient-3">
+                    <span class="card-badge">Meditace</span>
                     <h3>Probouzení vnitřní moudrosti</h3>
                     <p>Vedené setkání s „buňkou" – hluboké propojení s tělesnou moudrostí, vděčností a laskavostí k sobě.</p>
-                    <a class="btn" href="https://zarivaduse.cz/transformacni-meditace-setkani-s-bunecnou-moudrosti/" target="_blank" rel="noopener">Detail & objednat</a>
-                </article>
+                    <a href="https://zarivaduse.cz/transformacni-meditace-setkani-s-bunecnou-moudrosti/" target="_blank" class="card-link">
+                        Detail & objednat
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Balíček tří meditací -->
-                <article class="card">
-                    <span class="badge">Balíček</span>
+                <div class="meditation-card card-gradient-4 featured">
+                    <div class="featured-badge">⭐ Oblíbené</div>
+                    <span class="card-badge">Balíček</span>
                     <h3>Balíček 3 meditací: Cesta k sobě</h3>
                     <p>Propojení – Uvolnění – Obnova. Zklidnění, regenerace a návrat do klidu a harmonie v těle i mysli.</p>
-                    <a class="btn" href="https://zarivaduse.cz/balicek-tri-meditaci-cesta-k-sobe-propojeni-uvolneni-obnova/" target="_blank" rel="noopener">Detail & objednat</a>
-                </article>
+                    <a href="https://zarivaduse.cz/balicek-tri-meditaci-cesta-k-sobe-propojeni-uvolneni-obnova/" target="_blank" class="card-link">
+                        Detail & objednat
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Rozcestník online meditací -->
-                <article class="card">
-                    <span class="badge">Rozcestník</span>
+                <div class="meditation-card card-gradient-5">
+                    <span class="card-badge">Rozcestník</span>
                     <h3>Online meditace – přehled</h3>
                     <p>Aktuální nabídka online rituálů a tematických meditací na jednom místě.</p>
-                    <a class="btn" href="https://zarivaduse.cz/online-meditace/" target="_blank" rel="noopener">Otevřít přehled</a>
-                </article>
+                    <a href="https://zarivaduse.cz/online-meditace/" target="_blank" class="card-link">
+                        Otevřít přehled
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
 
-                <!-- Meditace zdarma -->
-                <article class="card">
-                    <span class="badge">Zdarma</span>
+                <div class="meditation-card card-gradient-6">
+                    <span class="card-badge free">Zdarma</span>
                     <h3>Meditace zdarma</h3>
                     <p>Krátká vedená nahrávka pro rychlý návrat k dechu a k sobě. Získáte po vyplnění formuláře.</p>
-                    <a class="btn" href="https://zarivaduse.cz/formular-pro-meditaci-zdarma/" target="_blank" rel="noopener">Získat zdarma</a>
-                </article>
+                    <a href="https://zarivaduse.cz/formular-pro-meditaci-zdarma/" target="_blank" class="card-link">
+                        Získat zdarma
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M6 12 L10 8 L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Visual (pyramida) -->
-    <section class="visual visual-pyramid">
-        <div class="visual-overlay"></div>
+    <!-- Visual Break -->
+    <section class="visual-break">
         <div class="visual-content">
-            <h2 class="visual-title">Prostor, kde vzniká jasnost</h2>
-            <p class="visual-text">Meditace jsou navržené tak, abyste je mohli používat opakovaně – kdykoli potřebujete přeladit tělo, emoce i mysl.</p>
+            <div class="visual-icon">
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="30" stroke="white" stroke-width="2" opacity="0.3"/>
+                    <circle cx="40" cy="40" r="22" stroke="white" stroke-width="2" opacity="0.5"/>
+                    <circle cx="40" cy="40" r="14" stroke="white" stroke-width="2" opacity="0.7"/>
+                    <circle cx="40" cy="40" r="6" fill="white"/>
+                </svg>
+            </div>
+            <h2>Prostor, kde vzniká jasnost</h2>
+            <p>Meditace jsou navržené tak, abyste je mohli používat opakovaně – kdykoli potřebujete přeladit tělo, emoce i mysl</p>
         </div>
     </section>
 
-    <!-- Programy & pobyty -->
+    <!-- Programs -->
     <section id="programs" class="programs">
         <div class="container">
-            <h2 class="section-title">Programy & pobyty</h2>
-            <p class="section-subtitle">Delší vedené cesty a transformační setkání.</p>
-
-            <div class="cards-grid cols-2">
-                <article class="card">
-                    <span class="badge">Programy</span>
-                    <h3>Programy Zářivá duše</h3>
-                    <p>Tematické série pro postupnou, udržitelnou změnu a integraci do každodennosti.</p>
-                    <a class="btn" href="https://zarivaduse.cz/programy/" target="_blank" rel="noopener">Zobrazit programy</a>
-                </article>
-
-                <article class="card">
-                    <span class="badge">Pobyt</span>
-                    <h3>Transformační pobyty</h3>
-                    <p>Hluboký ponor v bezpečném prostoru, sdílení a integrace – vybrané termíny v roce.</p>
-                    <a class="btn" href="https://zarivaduse.cz/pobyty/" target="_blank" rel="noopener">Aktuální info</a>
-                </article>
+            <div class="section-header">
+                <span class="section-badge">Programy & Pobyty</span>
+                <h2 class="section-title">Delší vedené cesty</h2>
+                <p class="section-subtitle">Transformační setkání a hlubší procesy pro udržitelnou změnu</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Kakao & koučink -->
-    <section id="cacao" class="cacao">
-        <div class="container">
-            <h2 class="section-title">Kakaové ceremonie & koučink</h2>
-            <p class="section-subtitle">Rituál pro otevření srdce nebo individuální průvodcovství.</p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-visual">
+                        <div class="program-icon">
+                            <svg viewBox="0 0 60 60" fill="none">
+                                <path d="M10 30 L30 10 L50 30 L30 50 Z" stroke="url(#prog1)" stroke-width="2" fill="none"/>
+                                <circle cx="30" cy="30" r="8" fill="url(#prog1)"/>
+                                <defs>
+                                    <linearGradient id="prog1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#7ec8d4"/>
+                                        <stop offset="100%" style="stop-color:#e8b5d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="card-badge">Programy</span>
+                        <h3>Programy Zářivá duše</h3>
+                        <p>Tematické série pro postupnou, udržitelnou změnu a integraci do každodennosti</p>
+                        <a href="https://zarivaduse.cz/programy/" target="_blank" class="btn btn-secondary">Zobrazit programy</a>
+                    </div>
+                </div>
 
-            <div class="cards-grid cols-2">
-                <article class="card">
-                    <span class="badge">Ceremonie</span>
-                    <h3>Kakaová ceremonie</h3>
-                    <p>Léčivá síla kakaa, vedená meditace a sdílená energie skupiny v bezpečném prostoru.</p>
-                    <a class="btn" href="https://zarivaduse.cz/kakaova-ceremonie/" target="_blank" rel="noopener">Více o ceremonii</a>
-                </article>
-
-                <article class="card">
-                    <span class="badge">Individuálně</span>
-                    <h3>Koučink</h3>
-                    <p>Holistický koučink a mentoring: disciplína, která léčí, a měřitelné výsledky bez vyhoření.</p>
-                    <a class="btn" href="https://zarivaduse.cz/koucink/" target="_blank" rel="noopener">Domluvit setkání</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Visual (column) -->
-    <section class="visual visual-column">
-        <div class="visual-overlay"></div>
-        <div class="visual-content">
-            <h2 class="visual-title">Stává se to jen jednou za 9 let</h2>
-            <p class="visual-text">11:11 propojuje staré a nové – a pomáhá uvolnit minulost a získat jasný plán pro další období.</p>
-        </div>
-    </section>
-
-    <!-- 11:11 order box -->
-    <section id="order" class="order-section">
-        <div class="container">
-            <h2 class="section-title">11:11 – Vedená meditace</h2>
-            <p class="section-subtitle">Okamžitý přístup • MP3 ke stažení • Navždy vaše</p>
-
-            <div class="order-card">
-                <div class="price">555 Kč</div>
-                <p class="order-description">Portál do srdce & manifestace</p>
-                <a class="btn btn-primary" href="https://zarivaduse.cz/11-11/" target="_blank" rel="noopener">Koupit meditaci 11:11</a>
-                <p class="order-note">Platba přes zabezpečenou bránu.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- O Zuz -->
-    <section id="about" class="about">
-        <div class="container about-container">
-            <h2 class="section-title">O Zuz</h2>
-
-            <div class="avatar-wrap">
-                <div class="avatar">
-                    <div class="avatar-placeholder">
-                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="100" r="90" fill="#d4a5a5" opacity="0.3"/>
-                            <circle cx="100" cy="80" r="40" fill="#d4a5a5"/>
-                            <ellipse cx="100" cy="160" rx="60" ry="50" fill="#d4a5a5"/>
-                        </svg>
+                <div class="program-card">
+                    <div class="program-visual">
+                        <div class="program-icon">
+                            <svg viewBox="0 0 60 60" fill="none">
+                                <rect x="15" y="15" width="30" height="30" rx="5" stroke="url(#prog2)" stroke-width="2" fill="none"/>
+                                <circle cx="30" cy="30" r="10" fill="url(#prog2)"/>
+                                <defs>
+                                    <linearGradient id="prog2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#e8b5d4"/>
+                                        <stop offset="100%" style="stop-color:#d4a5a5"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <span class="card-badge">Pobyt</span>
+                        <h3>Transformační pobyty</h3>
+                        <p>Hluboký ponor v bezpečném prostoru, sdílení a integrace – vybrané termíny v roce</p>
+                        <a href="https://zarivaduse.cz/pobyty/" target="_blank" class="btn btn-secondary">Aktuální info</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <p class="about-text">
-                Holistická koučka a průvodkyně osobní transformace, která spojuje neurovědu, psychologii a vědomou spiritualitu do praktického systému. Bez tlaku, s respektem k tělu a nervové soustavě.
-            </p>
+    <!-- Cacao & Coaching -->
+    <section id="cacao" class="cacao">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Kakao & Koučink</span>
+                <h2 class="section-title">Rituál a průvodcovství</h2>
+                <p class="section-subtitle">Otevření srdce nebo individuální cesta transformace</p>
+            </div>
 
-            <div class="chips">
-                <span class="chip">Neuro-informed</span>
-                <span class="chip">Soul-led</span>
-                <span class="chip">Praktická magie</span>
+            <div class="cacao-grid">
+                <div class="cacao-card">
+                    <div class="cacao-bg"></div>
+                    <div class="cacao-content">
+                        <span class="card-badge">Ceremonie</span>
+                        <h3>Kakaová ceremonie</h3>
+                        <p>Léčivá síla kakaa, vedená meditace a sdílená energie skupiny v bezpečném prostoru</p>
+                        <a href="https://zarivaduse.cz/kakaova-ceremonie/" target="_blank" class="btn btn-light">Více o ceremonii</a>
+                    </div>
+                </div>
+
+                <div class="cacao-card">
+                    <div class="cacao-bg"></div>
+                    <div class="cacao-content">
+                        <span class="card-badge">Individuálně</span>
+                        <h3>Koučink</h3>
+                        <p>Holistický koučink a mentoring: disciplína, která léčí, a měřitelné výsledky bez vyhoření</p>
+                        <a href="https://zarivaduse.cz/koucink/" target="_blank" class="btn btn-light">Domluvit setkání</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Kontakt -->
+    <!-- 11:11 Special -->
+    <section class="special-offer">
+        <div class="special-bg">
+            <div class="special-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="special-content">
+                <div class="special-badge">✨ Speciální meditace</div>
+                <h2>11:11 – Portál do srdce</h2>
+                <p class="special-desc">Stává se to jen jednou za 9 let. 11:11 propojuje staré a nové – a pomáhá uvolnit minulost a získat jasný plán pro další období.</p>
+                <div class="special-features">
+                    <div class="special-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12 L11 14 L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Okamžitý přístup</span>
+                    </div>
+                    <div class="special-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12 L11 14 L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>MP3 ke stažení</span>
+                    </div>
+                    <div class="special-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12 L11 14 L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Navždy vaše</span>
+                    </div>
+                </div>
+                <div class="special-price">
+                    <span class="price-amount">555 Kč</span>
+                    <span class="price-label">Portál do srdce & manifestace</span>
+                </div>
+                <a href="https://zarivaduse.cz/11-11/" target="_blank" class="btn btn-primary btn-large">Koupit meditaci 11:11</a>
+                <p class="special-note">Platba přes zabezpečenou bránu</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-bg"></div>
+                        <div class="avatar">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="avatar-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#e8b5d4;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#7ec8d4;stop-opacity:0.3" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="100" cy="100" r="80" fill="url(#avatar-grad)"/>
+                                <circle cx="100" cy="85" r="35" fill="#d4a5a5" opacity="0.5"/>
+                                <ellipse cx="100" cy="150" rx="50" ry="45" fill="#d4a5a5" opacity="0.5"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <span class="section-badge">O Zuz</span>
+                    <h2 class="section-title left">Průvodkyně osobní transformace</h2>
+                    <p>Holistická koučka a průvodkyně osobní transformace, která spojuje neurovědu, psychologii a vědomou spiritualitu do praktického systému.</p>
+                    <p>Bez tlaku, s respektem k tělu a nervové soustavě. Věřím v sílu každé ženy a její schopnost proměny.</p>
+                    <div class="about-tags">
+                        <span class="tag">Neuro-informed</span>
+                        <span class="tag">Soul-led</span>
+                        <span class="tag">Praktická magie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Kontakt</h2>
-
-            <div class="contact-card">
-                <p>Máte otázku k meditacím, programům nebo objednávce? Napište mi.</p>
-                <p class="contact-email">E-mail: <a href="mailto:info@tvatvorba.cz">info@tvatvorba.cz</a></p>
-                <a class="btn" href="https://zarivaduse.cz/kontakt/" target="_blank" rel="noopener">Otevřít kontaktní stránku</a>
+            <div class="contact-box">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 60 60" fill="none">
+                        <path d="M10 20 L30 35 L50 20" stroke="url(#contact-grad)" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="10" y="15" width="40" height="30" rx="3" stroke="url(#contact-grad)" stroke-width="2" fill="none"/>
+                        <defs>
+                            <linearGradient id="contact-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7ec8d4"/>
+                                <stop offset="100%" style="stop-color:#e8b5d4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2>Máte otázku?</h2>
+                <p>Napište mi ohledně meditací, programů nebo objednávky</p>
+                <a href="mailto:info@tvatvorba.cz" class="contact-email">info@tvatvorba.cz</a>
+                <a href="https://zarivaduse.cz/kontakt/" target="_blank" class="btn btn-secondary">Otevřít kontaktní stránku</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2025 Zářivá duše • VOP & GDPR najdete na webu.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="white" stroke-width="2"/>
+                            <path d="M20 10 L20 30 M10 20 L30 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span>Zářivá duše</span>
+                </div>
+                <p class="footer-tagline">S láskou pro vaši duchovní cestu</p>
+                <p class="footer-copy">&copy; 2025 Zářivá duše • VOP & GDPR najdete na webu</p>
+            </div>
         </div>
     </footer>
 
