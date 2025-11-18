@@ -3,28 +3,35 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-
-    // Animate hamburger
-    hamburger.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
 
 // Smooth scroll for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
 
+        // Skip if it's just '#'
+        if (href === '#') {
+            e.preventDefault();
+            return;
+        }
+
+        const target = document.querySelector(href);
         if (target) {
+            e.preventDefault();
             const offsetTop = target.offsetTop - 80; // Account for fixed navbar
             window.scrollTo({
                 top: offsetTop,
@@ -38,22 +45,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-    }
+        if (currentScroll > 100) {
+            navbar.style.boxShadow = '0 2px 30px rgba(212, 165, 165, 0.15)';
+        } else {
+            navbar.style.boxShadow = '0 2px 10px rgba(212, 165, 165, 0.08)';
+        }
 
-    lastScroll = currentScroll;
-});
+        lastScroll = currentScroll;
+    });
+}
 
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -65,48 +74,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
+// Observe sections (except hero)
+document.querySelectorAll('section:not(.hero)').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     observer.observe(section);
-});
-
-// Hero section should be visible immediately
-document.querySelector('.hero').style.opacity = '1';
-document.querySelector('.hero').style.transform = 'translateY(0)';
-
-// Form submission
-const contactForm = document.querySelector('.contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(contactForm);
-
-        // Here you would normally send the data to a server
-        // For now, we'll just show a success message
-        alert('Děkujeme za vaši zprávu! Brzy se vám ozveme.');
-
-        // Reset form
-        contactForm.reset();
-    });
-}
-
-// Gallery hover effect enhancement
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-galleryItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.zIndex = '10';
-    });
-
-    item.addEventListener('mouseleave', () => {
-        item.style.zIndex = '1';
-    });
 });
 
 // Add parallax effect to hero decoration circles
@@ -116,7 +89,8 @@ window.addEventListener('scroll', () => {
 
     circles.forEach((circle, index) => {
         const speed = 0.1 + (index * 0.05);
-        circle.style.transform = `translateY(${scrolled * speed}px)`;
+        const yPos = scrolled * speed;
+        circle.style.transform = `translateY(${yPos}px)`;
     });
 });
 
@@ -127,4 +101,15 @@ window.addEventListener('load', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+});
+
+// Card hover effect
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.borderColor = 'rgba(212, 165, 165, 0.3)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+        this.style.borderColor = 'rgba(212, 165, 165, 0.15)';
+    });
 });
